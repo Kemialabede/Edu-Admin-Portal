@@ -1,0 +1,70 @@
+@import '../../styles/responsive.scss';
+
+.sidebar {
+    position: fixed; // Added fixed positioning
+    width: 228px;
+    background: #8261E0;
+    box-shadow: -8px 12px 18px 0 #b3bcd0;
+    top: 30px;
+    left: 10px;
+    flex: 0.5;
+    border-radius: 16px;
+    height: 80vh; // Changed to full viewport height
+    padding: 50px 20px;
+    z-index: 999;
+    transition: all 0.3s;
+
+    &--open {
+        transform: translateX(0);
+    }
+
+    &--closed {
+        transform: translateX(-100%);
+    }
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 15px;
+
+    svg {
+        color: white;
+        width: 20px;
+        height: 20px;
+    }
+
+    a {
+        color: #fff;
+        display: flex;
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+    }
+}
+
+.sidebar-active {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+
+    svg {
+        color: white;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+a {
+    color: #fff;
+    display: flex;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+}
