@@ -1,0 +1,52 @@
+@import '../../styles/responsive.scss';
+
+.layout-flex {
+    background-color: rgba(255, 255, 255, 0.5);
+    display: flex;
+}
+
+.layout-content {
+    flex: 1;
+    padding: 30px;
+    transition: margin-left 0.3s;
+
+    &--shifted {
+        margin-left: 280px; // Adjust based on the sidebar width
+    }
+}
+
+.body-wrapper {
+    border-radius: 8px;
+    min-height: calc(100vh - 60px); // Adjust based on header height
+}
+
+.body-wrapper__full {
+    border-radius: 8px;
+    min-height: calc(100vh - 60px); // Adjust based on header height
+    margin-left: 0;
+}
+
+.authlayout-container {
+    height: 100vh;
+    display: flex;
+    width: 100%;
+
+    &__firstSection {
+        background-color: #8261E0;
+        flex: 1;
+
+        img {
+            width: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 150px auto 0 auto;
+        }
+    }
+
+    &__secondSection {
+        flex: 1;
+        padding: 50px;
+        overflow: scroll;
+    }
+}
