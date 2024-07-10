@@ -1,0 +1,188 @@
+@import '../../styles/responsive.scss';
+
+table tr td,
+table tr td {
+    text-align: center;
+}
+
+table,
+head,
+tbody,
+th,
+td,
+tr {
+    @include md {
+        display: block;
+    }
+
+    @include lg {
+        display: block
+    }
+}
+
+thead tr {
+    @include md {
+        display: none
+    }
+
+    @include lg {
+        display: none
+    }
+}
+
+tr {
+    @include md {
+        border: 1px solid #ccc;
+    }
+
+
+}
+
+
+@media only screen and (max-width: 500px) {
+
+    table,
+    head,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+
+    thead tr {
+        display: none;
+    }
+
+    tr {
+        border: 1px solid #ccc;
+    }
+
+    td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        white-space: normal;
+        text-align: left;
+        min-height: 30px;
+        overflow: hidden;
+        word-break: break-all;
+    }
+
+    td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    td:before {
+        content: attr(data-title);
+    }
+}
+
+.table {
+    box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
+    border-collapse: collapse;
+
+    &__header {
+        th {
+            font-size: 12px;
+            color: #fff;
+            padding: 15px 25px;
+            background-color: #8261E0;
+            text-align: center;
+            text-transform: uppercase;
+
+            &:first-child {
+                text-align: left;
+            }
+
+            &:last-child {
+                text-align: right;
+            }
+        }
+
+    }
+
+    &__body {
+        td {
+            padding: 15px 25px;
+            border-top: 1px solid #e8e8e8;
+            font-size: 13px;
+            line-height: 22px;
+            background-color: #fff;
+
+            &:first-child {
+                text-align: left;
+            }
+
+            div {
+                &:last-child {
+                    text-align: right !important;
+                    text-align: -webkit-right !important;
+
+                    @include sm {
+                        text-align: left !important;
+                    }
+                }
+            }
+
+            &:last-child {
+                text-align: right;
+                position: relative;
+                right: 0;
+            }
+
+
+            @include md {
+                text-align: left;
+            }
+
+            @include lg {
+                text-align: left;
+            }
+        }
+    }
+
+    &__empty {
+        text-align: center !important;
+        text-align: -webkit-center !important;
+        background-color: white;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 50px 0;
+
+        @include sm {
+            text-align: center !important;
+            text-align: -webkit-center !important;
+        }
+    }
+}
+
+.logo {
+    img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #ffffff;
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+        margin-right: 10px;
+    }
+}
+
+.action-button {
+    width: auto;
+    text-align: right;
+    padding: 4.5px 7px;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 13px;
+    display: flex;
+    align-items: end;
+}
