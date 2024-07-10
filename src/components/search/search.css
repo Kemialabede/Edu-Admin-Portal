@@ -1,0 +1,31 @@
+.container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+
+    input {
+        width: auto;
+        padding: 10px 20px;
+        border: 1px solid #e8e8e8;
+        border-radius: 5px 0 0 5px;
+        outline: #00a6f7;
+
+        &:focus {
+            border: 1px solid #00a6f7;
+        }
+    }
+}
+
+.input-group-append {
+    background-color: #00a6f7;
+    padding: 10px 12px;
+    margin-left: -2px;
+    border-radius: 0px 5px 5px 0px;
+
+    button {
+        background-color: unset;
+        border: none;
+        color: #fff;
+    }
+}
