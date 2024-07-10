@@ -10,10 +10,6 @@ const ToastAlert = ({ type, message }) => {
   )
 }
 
-ToastAlert.defaultProps = {
-  type: 'Success',
-  message: 'none',
-}
 
 ToastAlert.propTypes = {
   type: PropTypes.string,
