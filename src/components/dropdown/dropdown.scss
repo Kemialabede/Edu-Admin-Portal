@@ -1,0 +1,26 @@
+.menu-item {
+    color: #34495e;
+    height: 36px !important;
+
+    span {
+        margin: unset !important;
+    }
+
+    div {
+        display: flex;
+        align-items: center;
+        margin: unset !important;
+        padding: 5px 0;
+
+        svg {
+            width: 20px;
+            height: 20px;
+            padding-right: 8px;
+        }
+
+        p {
+            font-size: 14px;
+            font-weight: 500 !important;
+        }
+    }
+}
