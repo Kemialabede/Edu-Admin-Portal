@@ -10,6 +10,7 @@ import { IoIosAddCircleOutline } from 'react-icons/io'
 import CreateAdmin from './createAdmin'
 import EditAdmin from './editAdmin'
 import DeactivateAdmin from './deactivateAdmin'
+import Search from '../../components/search'
 
 const Admin = () => {
 
@@ -22,6 +23,8 @@ const Admin = () => {
     <DashboardLayout pageTitle={true} content={<div className="create-button">
         <Button onClick={() => handleOpenModal('create')}><div className="create-button__inner"><IoIosAddCircleOutline /><p>Create Admin</p></div></Button>
       </div>}>
+          <Search />
+      <br />
        <Table tableData={data} tableHeaders={headers}>
         {(row) => (
           <>

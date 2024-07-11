@@ -11,6 +11,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { Menu } from "evergreen-ui";
 import DeleteProgram from "./deleteProgram";
 import EditProgram from "./editProgram";
+import Search from "../../components/search";
 
 const Programs = () => {
   const [openModal, setOpenModal] = useState(null);
@@ -23,6 +24,8 @@ const Programs = () => {
     <DashboardLayout pageTitle={true} content={<div className="create-button">
         <Button onClick={() => handleOpenModal('create')}><div className="create-button__inner"><IoIosAddCircleOutline /><p>Create Class</p></div></Button>
       </div>}>
+          <Search />
+      <br />
       
       <Table tableData={data} tableHeaders={headers}>
         {(row) => (

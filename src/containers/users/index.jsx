@@ -7,6 +7,7 @@ import { Menu } from 'evergreen-ui';
 import DeactivateModal from "./deactivateModal";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Search from '../../components/search'
 
 const Users = () => {
       const [openModal, setOpenModal] = useState(null);
@@ -17,7 +18,9 @@ const Users = () => {
   };
 
   return (
-    <DashboardLayout pageTitle={true}>
+    <DashboardLayout pageTitle={true} content={<div>
+      <Search />
+    </div>}>
       <Table tableData={data} tableHeaders={headers}>
         {(row) => (
           <>

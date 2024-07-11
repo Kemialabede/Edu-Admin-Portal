@@ -13,6 +13,7 @@ import { BsThreeDotsVertical } from 'react-icons/bs';
 import { Menu } from 'evergreen-ui';
 import EditCourse from './editCourse';
 import { useNavigate } from 'react-router-dom';
+import Search from '../../components/search';
 
 const Courses = () => {
     const [openModal, setOpenModal] = useState(null);
@@ -32,6 +33,8 @@ const Courses = () => {
     <DashboardLayout pageTitle={true} content={<div className="create-button">
         <Button onClick={() => handleOpenModal('create')}><div className="create-button__inner"><IoIosAddCircleOutline /><p>Create Course</p></div></Button>
       </div>}>
+          <Search />
+      <br />
       <Table tableData={data} tableHeaders={headers}>
         {(row) => (
           <>

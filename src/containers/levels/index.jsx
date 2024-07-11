@@ -11,6 +11,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { Menu } from "evergreen-ui";
 import DeleteLevel from "./deleteLevel";
 import EditLevel from "./editLevel";
+import Search from "../../components/search";
 
 const Levels = () => {
    const [openModal, setOpenModal] = useState(null);
@@ -22,6 +23,8 @@ const Levels = () => {
     <DashboardLayout pageTitle={true} content={<div className="create-button">
         <Button onClick={() => handleOpenModal('create')}><div className="create-button__inner"><IoIosAddCircleOutline /><p>Create Level</p></div></Button>
       </div>}>
+      <Search />
+      <br />
       <Table tableData={data} tableHeaders={headers}>
         {(row) => (
           <>

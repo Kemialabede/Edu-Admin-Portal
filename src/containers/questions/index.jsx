@@ -1,8 +1,6 @@
 import DashboardLayout from "../../components/layout"
 import Table from "../../components/table";
 import { data, headers } from "../../mocks/question";
-import { RiDeleteBinLine } from "react-icons/ri";
-import { MdReadMore } from "react-icons/md";
 import '../courses/courses.scss';
 import { useState } from "react";
 import UploadQuestions from "./uploadQuestions";
@@ -13,6 +11,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import Button from "../../components/button";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import AddQuestionsModal from "./addQuestionsModal";
+import Search from "../../components/search";
 
 const Questions = () => {
   const [openModal, setOpenModal] = useState(null);
@@ -25,6 +24,8 @@ const Questions = () => {
     <DashboardLayout pageTitle={true} content={<div className="create-button">
         <Button onClick={() => handleOpenModal('create')}><div className="create-button__inner"><IoIosAddCircleOutline /><p>Add Questions</p></div></Button>
       </div>}>
+          <Search />
+      <br />
       <Table tableData={data} tableHeaders={headers}>
         {(row) => (
             <>
