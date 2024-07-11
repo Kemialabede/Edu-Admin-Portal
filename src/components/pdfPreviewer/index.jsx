@@ -9,7 +9,7 @@ import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 import { IoOpenOutline } from 'react-icons/io5';
 import { MdOutlineDelete } from "react-icons/md";
 import DeletePdf from './deletePdf';
-import ViewPdf from './ViewPdf';
+import ViewPdf from './viewPdf';
 
 const PDFPreview = ({ pdfUrl }) => {
   const [openModal, setOpenModal] = useState(null);
