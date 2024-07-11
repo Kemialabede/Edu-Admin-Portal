@@ -1,0 +1,40 @@
+.radio-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 35px;
+
+    div {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+}
+
+.singleUpload {
+
+    &__question {
+        p {
+            margin-bottom: 7px;
+        }
+
+        textarea {
+            width: 97%;
+            padding: 14px 12px;
+            height: 80px;
+            border: 1px solid #ced4da;
+            font-family: "Nunito Sans", sans-serif;
+            font-size: 16px;
+            outline: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+
+        }
+    }
+
+    &__options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 20px;
+    }
+}

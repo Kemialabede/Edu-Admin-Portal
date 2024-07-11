@@ -11,6 +11,7 @@ import Profile from "../containers/profile"
 import Notifications from "../containers/notifications"
 import Admin from "../containers/admin"
 import Settings from "../containers/settings"
+import ViewCourseMaterials from "../containers/courses/viewCourse"
 
 const AppRouter = () => {
   return (
@@ -20,6 +21,7 @@ const AppRouter = () => {
       <Route path='/class-management' element={<Programs />} />
        <Route path='/levels' element={<Levels/>} />
        <Route path='/courses' element={<Courses/>} />
+              <Route path='/courses/details' element={<ViewCourseMaterials />} />
        <Route path='/questions-management' element={<Questions/>} />
        <Route path='/login' element={<Login />} />
        <Route path='/users/details' element={<UserDetails />} />

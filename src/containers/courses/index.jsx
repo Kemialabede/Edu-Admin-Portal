@@ -1,9 +1,7 @@
 import DashboardLayout from '../../components/layout'
 import Table from '../../components/table'
 import { data, headers } from '../../mocks/courses';
-import { RiDeleteBinLine } from "react-icons/ri";
 import './courses.scss';
-import { MdReadMore } from "react-icons/md";
 import { useState } from 'react';
 import UploadCourseMaterials from './uploadCourseMaterials';
 import DeleteCourse from './deleteCourse';
@@ -14,9 +12,11 @@ import Dropdown from '../../components/dropdown';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { Menu } from 'evergreen-ui';
 import EditCourse from './editCourse';
+import { useNavigate } from 'react-router-dom';
 
 const Courses = () => {
     const [openModal, setOpenModal] = useState(null);
+    const navigate = useNavigate();
 
       const handleOpenModal = (modalName) => {
     setOpenModal(modalName);
@@ -47,7 +47,7 @@ const Courses = () => {
                     </Menu.Item>
                     <Menu.Divider />
                     <Menu.Item className='menu-item'>
-                      <div onClick={() => handleOpenModal('edit')}>
+                      <div onClick={() => navigate('/courses/details')}>
                         <p>View</p>
                       </div>
                     </Menu.Item>

@@ -14,11 +14,6 @@ const Search = ({ placeholder }) => {
           placeholder={placeholder || 'Search...'}
           value=''
         />
-        <div className='input-group-append'>
-          <button className='btn btn--primary' type='submit'>
-            <i className='fa fa-search'></i>
-          </button>
-        </div>
       </div>
     </form>
   )

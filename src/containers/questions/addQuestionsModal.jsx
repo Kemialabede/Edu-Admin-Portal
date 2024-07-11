@@ -1,15 +1,16 @@
 import  { useRef, useState } from 'react';
-import Modal from '../../components/modal';
-import { ImUpload2 } from "react-icons/im";
-import './questions.scss';
+import { Form, Formik } from "formik"
+import Modal from "../../components/modal"
+import Select from '../../components/select'
+import { ImUpload2 } from 'react-icons/im';
 import Input from '../../components/input';
-import { Form, Formik } from 'formik';
+import Button from '../../components/button';
 
-const UploadQuestions = ({  isShown, setIsShown }) => {
-  const fileInputRef = useRef(null);
-  const [selectedQuestionType, setSelectedQuestionType] = useState("single-upload");
+const AddQuestionsModal = ({ isShown, setIsShown }) => {
+    const [selectedQuestionType, setSelectedQuestionType] = useState("single-upload");
+    const fileInputRef = useRef(null);
 
-  const handleQuestionTypeChange = (e) => {
+     const handleQuestionTypeChange = (e) => {
     setSelectedQuestionType(e.target.value);
   };
 
@@ -19,9 +20,8 @@ const UploadQuestions = ({  isShown, setIsShown }) => {
       fileInputRef.current.click();
     }
   };
-
   return (
-    <Modal isShown={isShown} width={700} setIsShown={setIsShown} buttonText={'Upload'} title="Upload Questions">
+     <Modal title="Create Questions" isShown={isShown} setIsShown={setIsShown}>
       <div className="radio-container">
         <div>
           <input type="radio" value="single-upload" onChange={handleQuestionTypeChange} name="contentOption" checked={selectedQuestionType === "single-upload"} />
@@ -32,7 +32,13 @@ const UploadQuestions = ({  isShown, setIsShown }) => {
           <p>Bulk Upload</p>
         </div>
       </div>
-      {selectedQuestionType === "bulk-upload" && <div className="file-upload" onClick={handleDivClick}>
+        <Formik>
+        <Form>
+        <div>
+            <Select title="Course" name="program" onChange={() => {}} type="text" />
+        </div>
+        <br />
+        {selectedQuestionType === "bulk-upload" && <div className="file-upload" onClick={handleDivClick}>
         <ImUpload2 />
         <span className="browse-text">Browse</span>
         <input
@@ -49,7 +55,7 @@ const UploadQuestions = ({  isShown, setIsShown }) => {
           <Form>
             <div className='singleUpload__question'>
               <p>Question</p>
-        <textarea></textarea>
+        <textarea style={{ width: '95%'}}></textarea>
         </div>
         <div className='singleUpload__options'>
           <Input title="Option 1" />
@@ -61,8 +67,13 @@ const UploadQuestions = ({  isShown, setIsShown }) => {
         </Form>
         </Formik>
         </div>}
+        <div className="create-program__btn">
+        <Button theme="primary" size="sm">Create Question</Button>
+        </div>
+        </Form>
+        </Formik>
     </Modal>
-  );
-};
+  )
+}
 
-export default UploadQuestions;
+export default AddQuestionsModal

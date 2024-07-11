@@ -73,5 +73,41 @@
             background-color: red;
         }
     }
+}
 
+.courseMaterials {
+    position: relative;
+    top: 50px;
+
+    &__heading {
+        font-size: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+
+    }
+
+    &__pdf {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+}
+
+.flex-item {
+    flex: 1 0 calc(33.33% - 20px);
+    /* Equal width for each item minus the gap */
+    max-width: calc(33.33% - 20px);
+    /* Maximum width for each item minus the gap */
+    /* Equal height for each item */
+    border: 1px solid #ccc;
+    /* Optional: Border for visual separation */
+    box-sizing: border-box;
+    /* Ensure borders don't affect overall width */
+    padding: 10px;
+    /* Optional: Padding for content */
+    margin-bottom: 20px;
+    /* Optional: Bottom margin to create equal spacing */
 }
