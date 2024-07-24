@@ -10,8 +10,6 @@ const UserDetails = () => {
   const params = useParams();
   const { data, isFetching } = useFetchSingleStaff(params?.id);
 
-  console.log(data);
-
   return (
     <DashboardLayout>
       {isFetching ? (

@@ -7,8 +7,6 @@ export const useDeleteCourseMaterial = ({ setIsShown, currentId }) => {
   const { toast } = useAlert();
   const queryClient = useQueryClient();
 
-  console.log(currentId)
-
   return useMutation({
     mutationFn: () =>
       deleteCourseMaterial({

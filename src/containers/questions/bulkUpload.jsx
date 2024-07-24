@@ -46,7 +46,6 @@ const BulkUpload = ({ courses, setIsShown }) => {
         setFileName(file.name);
         setFieldValue('file', file);
         setError('');
-        console.log(file);
       } else {
         setFileName('');
         setError('Please upload only XLSX files and XLS files');

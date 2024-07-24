@@ -8,8 +8,6 @@ const DeleteCourse = ({ isShown, setIsShown, currentId }) => {
     currentId,
   });
 
-  console.log(currentId)
-
   return (
     <Modal
       isShown={isShown}

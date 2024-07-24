@@ -26,7 +26,6 @@ const VideoPreview = ({ videoUrl }) => {
 
   const handleVideoError = (e) => {
     console.error('Video error:', e);
-    console.log('Video URL:', videoUrl);
   };
 
   return (
