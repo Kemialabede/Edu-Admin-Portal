@@ -1,8 +1,8 @@
-import AppRouter from '../routes'
-import Interceptor from '../services/Interceptors'
+import AppRouter from '../routes';
+import Interceptor from '../services/Interceptors';
 
 const App = () => {
-  return <Interceptor component={<AppRouter />} />
-}
+  return <Interceptor component={<AppRouter />} />;
+};
 
-export default App
+export default App;

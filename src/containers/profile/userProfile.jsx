@@ -1,32 +1,31 @@
-import React from 'react'
-import './profile.scss'
+import './profile.scss';
+import { useUserContext } from '../../contexts/userContexts';
 
 const UserProfile = () => {
+  const { userData } = useUserContext();
   return (
     <>
       {' '}
-      <div className='password_setting__roleInfo'>
-        <div className='password_setting__role'>
-          <img src='https://egopielaundry.com/my/placeholder-image/400x400' />
-          <p>Super Admin</p>
+      <div className="password_setting__roleInfo">
+        <div className="password_setting__role">
+          <img src="https://egopielaundry.com/my/placeholder-image/400x400" />
+          <p>{userData?.admin?.role}</p>
         </div>
-        <div className='password_setting__content'>
+        <div className="password_setting__content">
           <div>
             <p>Name</p>
-            <p>Super Admin</p>
-          </div>
-          <div>
-            <p>Username</p>
-            <p>admin</p>
+            <p>
+              {userData?.admin?.first_name} {userData?.admin?.last_name}
+            </p>
           </div>
           <div>
             <p>Email</p>
-            <p>obedodume@gmail.com</p>
+            <p>{userData?.admin?.email}</p>
           </div>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default UserProfile
+export default UserProfile;

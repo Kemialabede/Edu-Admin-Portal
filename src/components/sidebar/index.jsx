@@ -10,11 +10,15 @@ const Sidebar = ({ isOpen }) => {
     <div className={`sidebar ${isOpen ? 'sidebar--open' : 'sidebar--closed'}`}>
       {navLinks?.map((item) => (
         <div key={item.link}>
-          <NavLink 
+          <NavLink
             to={item.link}
-            className={({ isActive }) => isActive ? 'sidebar-active' : 'sidebar-item'}
-          >  
-          <div>{item.icon}</div><span>{item.name}</span></NavLink>
+            className={({ isActive }) =>
+              isActive ? 'sidebar-active' : 'sidebar-item'
+            }
+          >
+            <div>{item.icon}</div>
+            <span>{item.name}</span>
+          </NavLink>
         </div>
       ))}
     </div>

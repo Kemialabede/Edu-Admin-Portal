@@ -1,7 +1,7 @@
-import { UserContextProvider } from './userContexts.jsx'
+import { UserContextProvider } from './userContexts.jsx';
 
 const ContextProviders = ({ children }) => {
-  return <UserContextProvider>{children}</UserContextProvider>
-}
+  return <UserContextProvider>{children}</UserContextProvider>;
+};
 
-export default ContextProviders
+export default ContextProviders;

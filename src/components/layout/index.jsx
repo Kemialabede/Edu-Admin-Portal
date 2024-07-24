@@ -19,7 +19,9 @@ const DashboardLayout = ({ children, content, pageTitle }) => {
   return (
     <div className="layout-flex">
       <Sidebar toggleSidebar={toggleSidebar} isOpen={isOpen} />
-      <div className={`layout-content ${isOpen ? 'layout-content--shifted' : ''}`}>
+      <div
+        className={`layout-content ${isOpen ? 'layout-content--shifted' : ''}`}
+      >
         <Header content={content} pageTitle={pageTitle} />
         <div className={isOpen ? 'body-wrapper' : 'body-wrapper__full'}>
           {children}

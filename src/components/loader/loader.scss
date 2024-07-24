@@ -1,0 +1,134 @@
+/* GridLoader.css */
+.grid-loader-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.grid-loader {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    width: 80px;
+    height: 80px;
+}
+
+.grid-item {
+    background-color: #8261E0;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.grid-item:nth-child(1) {
+    animation-delay: 0.0s;
+}
+
+.grid-item:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.grid-item:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.grid-item:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.grid-item:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.grid-item:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+.grid-item:nth-child(7) {
+    animation-delay: 0.6s;
+}
+
+.grid-item:nth-child(8) {
+    animation-delay: 0.7s;
+}
+
+.grid-item:nth-child(9) {
+    animation-delay: 0.8s;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(0.7);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+// p {
+//     margin-top: 20px;
+//     font-size: 18px;
+//     color: #333;
+// }
+
+
+.input-loader {
+    margin-bottom: 20px;
+}
+
+.skeleton-title {
+    height: 16px;
+    width: 80px;
+    background-color: #e0e0e0;
+    margin-bottom: 8px;
+    border-radius: 4px;
+}
+
+.skeleton-input {
+    height: 40px;
+    width: 100%;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+.skeleton-textarea {
+    height: 80px;
+    width: 100%;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+.skeleton-button {
+    height: 40px;
+    width: 100px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+}
+
+/* Add a subtle animation to the skeleton elements */
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.6;
+    }
+}
+
+.skeleton-title,
+.skeleton-input,
+.skeleton-textarea,
+.skeleton-button {
+    animation: pulse 1.5s infinite ease-in-out;
+}

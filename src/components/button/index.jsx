@@ -1,7 +1,7 @@
-import classNames from 'classnames'
-import { Icon } from '@iconify-icon/react'
-import styles from './button.module.scss'
-import PropTypes from 'prop-types'
+import classNames from 'classnames';
+import { Icon } from '@iconify-icon/react';
+import styles from './button.module.scss';
+import PropTypes from 'prop-types';
 
 const Button = ({
   children,
@@ -26,10 +26,10 @@ const Button = ({
       )}
     >
       {loading ? (
-        <div className=''>
+        <div className="">
           <p>{loader ? loader : null}</p>{' '}
           <Icon
-            icon='eos-icons:three-dots-loading'
+            icon="eos-icons:three-dots-loading"
             style={{ color: 'white' }}
             size={50}
             height={20}
@@ -44,8 +44,8 @@ const Button = ({
         </>
       )}
     </button>
-  )
-}
+  );
+};
 
 Button.propTypes = {
   children: PropTypes.node,
@@ -56,6 +56,6 @@ Button.propTypes = {
   loader: PropTypes.node,
   theme: PropTypes.string,
   size: PropTypes.string,
-}
+};
 
-export default Button
+export default Button;
