@@ -1,8 +1,8 @@
-import ToastAlert from '../components/toastAlert'
+import ToastAlert from '../components/toastAlert';
 
 const useAlert = () => {
-  const toast = (options) => ToastAlert(options)
-  return { toast }
-}
+  const toast = (options) => ToastAlert(options);
+  return { toast };
+};
 
-export default useAlert
+export default useAlert;

@@ -1,111 +1,118 @@
-import React from 'react';
 import DashboardLayout from '../../components/layout';
 import './users.scss';
 import { IoArrowBack } from 'react-icons/io5';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useFetchSingleStaff } from '../../hooks/queries/useFetchSingleStaff';
+import PageLoader from '../../components/loader/pageLoader';
 
 const UserDetails = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const params = useParams();
+  const { data, isFetching } = useFetchSingleStaff(params?.id);
+
+  console.log(data);
+
   return (
     <DashboardLayout>
-      <div className='userDetails__header' onClick={() => navigate(-1)}>
-        <IoArrowBack style={{ width: '25px', height: '25px' }} />
-        <p>User Details</p>
-      </div>
-      <div className="userDetails">
-        <div className="userDetails__profile">
-          <div className="userDetails__profile__firstSection">
-            <img width="150" height="150" src="https://img.icons8.com/color/80/circled-user-male-skin-type-1-2--v1.png" alt="User profile"/>
-            <p className="userDetails__profile__name">Diane Cooper</p>
-            <p className="userDetails__profile__email">diana.cooper@example.com</p>
+      {isFetching ? (
+        <PageLoader />
+      ) : (
+        <>
+          <div className="userDetails__header" onClick={() => navigate(-1)}>
+            <IoArrowBack style={{ width: '25px', height: '25px' }} />
+            <p>User Details</p>
           </div>
-          <div className="userDetails__profile__secondSection">
-            <div>
-              <p>First Name</p>
-              <p>Diana</p>
+          <div className="userDetails">
+            <div className="userDetails__profile">
+              <div className="userDetails__profile__firstSection">
+                <img
+                  width="150"
+                  height="150"
+                  src="https://img.icons8.com/color/80/circled-user-male-skin-type-1-2--v1.png"
+                  alt="User profile"
+                />
+                <p className="userDetails__profile__name">
+                  {data?.first_name} {data?.last_name}
+                </p>
+                <p className="userDetails__profile__email">{data?.email}</p>
+              </div>
+              <div className="userDetails__profile__secondSection">
+                <div>
+                  <p>First Name</p>
+                  <p>{data?.first_name}</p>
+                </div>
+                <div>
+                  <p>Last Name</p>
+                  <p>{data?.last_name}</p>
+                </div>
+                <div>
+                  <p>Phone Number</p>
+                  <p>{data?.phone || '-'}</p>
+                </div>
+                <div>
+                  <p>Email</p>
+                  <p>{data?.email}</p>
+                </div>
+                <div>
+                  <p>School Name</p>
+                  <p>{data?.school_name}</p>
+                </div>
+                <div>
+                  <p>Address</p>
+                  <p>{data?.address || '-'}</p>
+                </div>
+              </div>
             </div>
-            <div>
-              <p>Last Name</p>
-              <p>Cooper</p>
-            </div>
-            <div>
-              <p>Phone Number</p>
-              <p>(123) 456-7890</p>
-            </div>
-            <div>
-              <p>Email</p>
-              <p>diana.cooper@example.com</p>
-            </div>
-            <div>
-              <p>Address</p>
-              <p>123 Main St, Anytown, USA</p>
-            </div>
-            <div>
-              <p>Date of Birth</p>
-              <p>January 1, 1990</p>
-            </div>
-            <div>
-              <p>Occupation</p>
-              <p>Software Engineer</p>
-            </div>
-            <div>
-              <p>Company</p>
-              <p>Example Corp</p>
-            </div>
-            <div>
-              <p>Website</p>
-              <p>www.example.com</p>
-            </div>
-          </div>
-        </div>
 
-        <div className="userDetails__stats">
-          <h3>User Stats</h3>
-          <div className="userDetails__stats__grid">
-            <div>
-              <p>Status</p>
-              <p>Active</p>
+            <div className="userDetails__stats">
+              <h3>User Stats</h3>
+              <div className="userDetails__stats__grid">
+                <div>
+                  <p>Status</p>
+                  <p
+                    style={
+                      data?.status === 'Deactivated' ? { color: 'red' } : {}
+                    }
+                  >
+                    {data?.status}
+                  </p>
+                </div>
+                <div>
+                  <p>Email Verified</p>
+                  <p>{data?.email_verified === true ? 'Yes' : 'No'}</p>
+                </div>
+              </div>
             </div>
-            <div>
-              <p>Email Verified</p>
-              <p>Yes</p>
-            </div>
-          </div>
-        </div>
 
-        <div className="userDetails__courses">
-          <h3>Teaching Courses</h3>
-          <div className="userDetails__courses__grid">
-            <div>
-              <p>Course Name</p>
-              <p>Introduction to Programming</p>
+            <div className="userDetails__courses">
+              <h3>Classes</h3>
+              <div className="userDetails__courses__grid">
+                {data?.level?.classes?.map((item) => {
+                  return (
+                    <div key={item.uuid}>
+                      <p>Class Name</p>
+                      <p>{item.class_name}</p>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-            <div>
-              <p>Course Name</p>
-              <p>Advanced Mathematics</p>
-            </div>
-            <div>
-              <p>Course Name</p>
-              <p>Physics 101</p>
-            </div>
-          </div>
-        </div>
 
-        {/* <div className="userDetails__classes">
-          <h3>Assigned Classes</h3>
-          <div className="userDetails__classes__grid">
-            <div>
-              <p>Class Name</p>
-              <p>Grade 10 - Section A</p>
+            <div className="userDetails__courses">
+              <h3>Teaching Courses</h3>
+              <div className="userDetails__courses__grid">
+                {data?.class?.courses?.map((item) => {
+                  return (
+                    <div key={item.uuid}>
+                      <p>Course Name</p>
+                      <p>{item.name}</p>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-            <div>
-              <p>Class Name</p>
-              <p>Grade 11 - Section B</p>
-            </div>
-          </div>
-        </div> */}
 
-        <div className="userDetails__activities">
+            {/* <div className="userDetails__activities">
           <h3>Recent Activities</h3>
           <ul>
             <li>Graded assignments - 2 hours ago</li>
@@ -113,10 +120,12 @@ const UserDetails = () => {
             <li>Met with parents - 1 day ago</li>
             <li>Uploaded new course materials - 3 days ago</li>
           </ul>
-        </div>
-      </div>
+        </div> */}
+          </div>
+        </>
+      )}
     </DashboardLayout>
   );
-}
+};
 
 export default UserDetails;

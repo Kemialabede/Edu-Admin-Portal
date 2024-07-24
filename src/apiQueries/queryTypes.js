@@ -1,0 +1,13 @@
+export const ADMIN_DASHBOARD_QUERY_NAME = ['admin_dashboard'];
+export const ALL_LEVEL_QUERY_NAME = ['levels'];
+export const ALL_CLASSES_QUERY_NAME = ['classes'];
+export const ALL_COURSES_QUERY_NAME = ['courses'];
+export const ALL_COURSE_MATERIALS_QUERY_NAME = ['course_materials'];
+export const ALL_STAFF_QUERY_NAME = ['staff'];
+export const ALL_STAFF_SEARCH_QUERY_NAME = ['search_staff'];
+export const ALL_SINGLE_STAFF_QUERY_NAME = ['single_staff'];
+export const ALL_SINGLE_COURSE_QUERY_NAME = ['single_course'];
+export const GENERAL_SETTING = ['general-setting'];
+export const FETCH_QUESTIONS = ['questions'];
+export const ALL_ADMINS_QUERY_NAME = ['admins'];
+export const ALL_PERMISSIONS_QUERY_NAME = ['permissions'];

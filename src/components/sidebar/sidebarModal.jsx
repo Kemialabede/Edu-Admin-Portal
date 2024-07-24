@@ -1,8 +1,8 @@
-import { Position, SideSheet } from 'evergreen-ui'
-import { navLinks } from './navLinks'
-import { NavLink } from 'react-router-dom'
-import './sidebar.scss'
-import PropTypes from 'prop-types'
+import { Position, SideSheet } from 'evergreen-ui';
+import { navLinks } from './navLinks';
+import { NavLink } from 'react-router-dom';
+import './sidebar.scss';
+import PropTypes from 'prop-types';
 
 const SidebarModal = ({ isShown, onClose }) => {
   return (
@@ -16,20 +16,20 @@ const SidebarModal = ({ isShown, onClose }) => {
         <div>
           <div
             className={'sidebar_modal'}
-            data-background='https://egopielaundry.com/my/assets/admin/images/sidebar/2.jpg'
+            data-background="https://egopielaundry.com/my/assets/admin/images/sidebar/2.jpg"
           >
-            <button className='res-sidebar-close-btn'></button>
+            <button className="res-sidebar-close-btn"></button>
             <div>
-              <div className='sidebar__logo'>
-                <a href='/my/admin/dashboard' className='sidebar__main-logo'>
+              <div className="sidebar__logo">
+                <a href="/my/admin/dashboard" className="sidebar__main-logo">
                   <img
-                    src='https://egopielaundry.com/my/assets/images/logoIcon/logo.png'
-                    alt='image'
+                    src="https://egopielaundry.com/my/assets/images/logoIcon/logo.png"
+                    alt="image"
                   />
                 </a>
               </div>
               <div
-                className='slimScrollDiv'
+                className="slimScrollDiv"
                 style={{
                   position: 'relative',
                   overflow: 'hidden',
@@ -38,15 +38,15 @@ const SidebarModal = ({ isShown, onClose }) => {
                 }}
               >
                 <div
-                  className='sidebar__menu-wrapper'
-                  id='sidebar__menuWrapper'
+                  className="sidebar__menu-wrapper"
+                  id="sidebar__menuWrapper"
                   style={{
                     overflow: 'scroll',
                     width: 'auto',
                     height: 'calc(-86.75px + 100vh)',
                   }}
                 >
-                  <ul className='sidebar__menu'>
+                  <ul className="sidebar__menu">
                     {navLinks?.map((item) => {
                       return (
                         <li
@@ -62,14 +62,14 @@ const SidebarModal = ({ isShown, onClose }) => {
                             <div style={{ marginRight: '15px' }}>
                               {item.icon}
                             </div>
-                            <span className='menu-title'>{item.name}</span>
+                            <span className="menu-title">{item.name}</span>
                           </NavLink>
                           <div
                             className={`sidebar-submenu sidebar-submenu__open`}
                             style={{ display: 'block' }}
                           ></div>
                         </li>
-                      )
+                      );
                     })}
                   </ul>
                 </div>
@@ -79,12 +79,12 @@ const SidebarModal = ({ isShown, onClose }) => {
         </div>
       </SideSheet>
     </div>
-  )
-}
+  );
+};
 
 SidebarModal.propTypes = {
   isShown: PropTypes.bool,
   onClose: PropTypes.func,
-}
+};
 
-export default SidebarModal
+export default SidebarModal;

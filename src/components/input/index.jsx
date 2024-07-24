@@ -15,6 +15,7 @@ const Input = ({
   disabled,
   max,
   error,
+  value
 }) => {
   const [formType, setFormType] = useState(type);
 
@@ -29,6 +30,7 @@ const Input = ({
           disabled={disabled}
           placeholder={placeholder}
           max={max}
+          value={value}
           type={formType}
           noValidate
         />

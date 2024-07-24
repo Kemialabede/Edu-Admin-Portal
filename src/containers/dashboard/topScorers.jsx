@@ -1,13 +1,13 @@
 import React from 'react';
-import Table from '../../components/table'
+import Table from '../../components/table';
 import { data, headers } from '../../mocks/topScorers';
 import './dashboard.scss';
 
 const TopScorers = () => {
   return (
     <>
-    <h3 className='topScorer__heading'>Top Scoring Teachers</h3>
-    <Table tableHeaders={headers} tableData={data}>
+      <h3 className="topScorer__heading">Top Scoring Teachers</h3>
+      <Table tableHeaders={headers} tableData={data}>
         {(row) => (
           <>
             <td>{row.teacher}</td>
@@ -17,9 +17,9 @@ const TopScorers = () => {
             <td>{row.totalScore}</td>
           </>
         )}
-    </Table>
+      </Table>
     </>
-  )
-}
+  );
+};
 
-export default TopScorers
+export default TopScorers;

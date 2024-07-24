@@ -1,8 +1,8 @@
-import React from 'react'
-import { Dialog } from 'evergreen-ui'
-import { IoClose } from 'react-icons/io5'
-import './modal.scss'
-import PropTypes from 'prop-types'
+import React from 'react';
+import { Dialog } from 'evergreen-ui';
+import { IoClose } from 'react-icons/io5';
+import './modal.scss';
+import PropTypes from 'prop-types';
 
 const Modal = ({ isShown, setIsShown, children, title, buttonText, width }) => {
   return (
@@ -16,9 +16,9 @@ const Modal = ({ isShown, setIsShown, children, title, buttonText, width }) => {
       hasCancel={false}
       hasClose={false}
     >
-      <div className='modal__line'></div>
-      <div className='modal'>
-        <div className='modal__heading'>
+      <div className="modal__line"></div>
+      <div className="modal">
+        <div className="modal__heading">
           <h4>{title}</h4>
           <IoClose
             onClick={() => setIsShown(false)}
@@ -28,13 +28,15 @@ const Modal = ({ isShown, setIsShown, children, title, buttonText, width }) => {
           />
         </div>
         {children}
-        {buttonText && <div className='modal__btn'>
-          <button>{buttonText}</button>
-        </div>}
+        {buttonText && (
+          <div className="modal__btn">
+            <button>{buttonText}</button>
+          </div>
+        )}
       </div>
     </Dialog>
-  )
-}
+  );
+};
 
 Modal.propTypes = {
   isShown: PropTypes.bool,
@@ -42,7 +44,7 @@ Modal.propTypes = {
   children: PropTypes.node,
   title: PropTypes.string,
   buttonText: PropTypes.string,
-  width: PropTypes.string
-}
+  width: PropTypes.string,
+};
 
-export default Modal
+export default Modal;

@@ -1,28 +1,30 @@
 export const getPageTitle = (location) => {
   switch (location) {
     case '/users':
-      return 'Staff Management'
+      return 'Staff Management';
     case '/class-management':
-      return 'Class Management'
+      return 'Class Management';
     case '/levels':
-      return 'Level Management'
+      return 'Level Management';
     case '/courses':
-      return 'Course Management'
+      return 'Course Management';
+    case '/courses-materials':
+      return 'Course Materials';
     case '/questions-management':
-      return 'Question Management'
+      return 'Question Management';
     case '/profile':
-      return 'Profile Management'
+      return 'Profile Management';
     case '/notifications':
-      return 'Notifications'
+      return 'Notifications';
     case '/admin-management':
-      return 'Admin Management'
+      return 'Admin Management';
     case '/settings':
-      return 'Settings'
+      return 'Test Settings';
     case '/':
-      return 'Dashboard'
+      return 'Dashboard';
     default:
-      return ''
+      return '';
   }
-}
+};
 
-export default getPageTitle
+export default getPageTitle;

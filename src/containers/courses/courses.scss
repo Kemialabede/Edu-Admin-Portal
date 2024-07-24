@@ -94,6 +94,16 @@
         gap: 20px;
     }
 
+    &__empty {
+        margin-top: 150px;
+        text-align: center;
+
+        p {
+            font-size: 16px;
+            font-weight: 600;
+        }
+    }
+
 }
 
 .flex-item {
@@ -109,5 +119,6 @@
     padding: 10px;
     /* Optional: Padding for content */
     margin-bottom: 20px;
+    word-break: break-word;
     /* Optional: Bottom margin to create equal spacing */
 }
