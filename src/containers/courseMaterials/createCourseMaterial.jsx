@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Modal from '../../components/modal';
 import Input from '../../components/input';
 import Button from '../../components/button';
@@ -8,12 +8,19 @@ import Select from '../../components/select';
 import { useFetchCourses } from '../../hooks/queries/useFetchCourses';
 import { editCourseMaterialSchema } from '../../utilities/validation';
 import { useCreateCourseMaterial } from '../../hooks/mutation/useCreateCourseMaterial';
+import { useFetchClasses } from '../../hooks/queries/useFetchClasses';
 
 const CreateCourseMaterial = ({ isShown, setIsShown }) => {
   const formRef = useRef();
   const { data } = useFetchCourses({});
   const fileInputRef = React.useRef(null);
   const [selectedFile, setSelectedFile] = useState(null);
+  const [className, selectedClassName] = useState('');
+  const { data: classes } = useFetchClasses({
+    query: {},
+  });
+
+  const filteredCourses = data?.data?.filter((i) => i.class_name === className);
 
   const { mutate: createCourseMaterial, isPending } = useCreateCourseMaterial({
     setIsShown,
@@ -94,10 +101,23 @@ const CreateCourseMaterial = ({ isShown, setIsShown }) => {
             <Form>
               <div style={{ marginBottom: '10px' }}>
                 <Select
+                  title="Classes"
+                  placeholder="Select Class"
+                  options={classes?.data?.map((item) => ({
+                    label: item.class_name,
+                    value: item.class_name,
+                  }))}
+                  onChange={(e) => {
+                    selectedClassName(e.target.value);
+                  }}
+                />
+              </div>
+              <div style={{ marginBottom: '10px' }}>
+                <Select
                   title="Course Name"
                   name="course_uuid"
                   placeholder="Select Course"
-                  options={data?.data?.map((item) => ({
+                  options={filteredCourses?.map((item) => ({
                     label: item.name,
                     value: item.uuid,
                   }))}

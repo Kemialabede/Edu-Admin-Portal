@@ -2,15 +2,22 @@ import Input from '../../components/input';
 import Select from '../../components/select';
 import Button from '../../components/button';
 import { Form, Formik } from 'formik';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useAddSingleQuestion } from '../../hooks/mutation/useAddSingleQuestion';
 import { singleUploadSchema } from '../../utilities/validation';
+import { useFetchClasses } from '../../hooks/queries/useFetchClasses';
 
 const SingleUpload = ({ courses, setIsShown }) => {
   const formRef = useRef();
   const { mutate: createSingleUpload, isPending } = useAddSingleQuestion({
     setIsShown,
   });
+  const [className, selectedClassName] = useState('');
+  const { data: classes } = useFetchClasses({
+    query: {},
+  });
+
+  const filteredCourses = courses?.filter((i) => i.class_name === className);
 
   return (
     <Formik
@@ -29,6 +36,19 @@ const SingleUpload = ({ courses, setIsShown }) => {
     >
       {(formik) => (
         <Form>
+          <div style={{ marginBottom: '10px' }}>
+            <Select
+              title="Classes"
+              placeholder="Select Class"
+              options={classes?.data?.map((item) => ({
+                label: item.class_name,
+                value: item.class_name,
+              }))}
+              onChange={(e) => {
+                selectedClassName(e.target.value);
+              }}
+            />
+          </div>
           <div>
             <Select
               title="Course"
@@ -38,7 +58,7 @@ const SingleUpload = ({ courses, setIsShown }) => {
               }}
               placeholder="Select course"
               error={formik.errors.course_uuid}
-              options={courses?.map((item) => ({
+              options={filteredCourses?.map((item) => ({
                 label: item.name,
                 value: item.uuid,
               }))}

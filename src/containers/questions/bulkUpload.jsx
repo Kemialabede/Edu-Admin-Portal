@@ -8,12 +8,19 @@ import { data, headers } from '../../mocks/csvQuestionData';
 import { Form, Formik } from 'formik';
 import { useUploadBatchQuestions } from '../../hooks/mutation/useUploadBatchQuestions';
 import { bulkUploadSchema } from '../../utilities/validation';
+import { useFetchClasses } from '../../hooks/queries/useFetchClasses';
 
 const BulkUpload = ({ courses, setIsShown }) => {
   const fileInputRef = useRef(null);
   const [fileName, setFileName] = useState('');
   const [error, setError] = useState('');
   const formRef = useRef();
+  const [className, selectedClassName] = useState('');
+  const { data: classes } = useFetchClasses({
+    query: {},
+  });
+
+  const filteredCourses = courses?.filter((i) => i.class_name === className);
 
   const { mutate: createBatchQuestions, isPending } = useUploadBatchQuestions({
     setIsShown,
@@ -76,6 +83,19 @@ const BulkUpload = ({ courses, setIsShown }) => {
       >
         {(formik) => (
           <Form>
+            <div style={{ marginBottom: '10px' }}>
+              <Select
+                title="Classes"
+                placeholder="Select Class"
+                options={classes?.data?.map((item) => ({
+                  label: item.class_name,
+                  value: item.class_name,
+                }))}
+                onChange={(e) => {
+                  selectedClassName(e.target.value);
+                }}
+              />
+            </div>
             <div>
               <Select
                 title="Course"
@@ -85,7 +105,7 @@ const BulkUpload = ({ courses, setIsShown }) => {
                 }}
                 placeholder="Select course"
                 error={formik.errors.course_uuid}
-                options={courses?.map((item) => ({
+                options={filteredCourses?.map((item) => ({
                   label: item.name,
                   value: item.uuid,
                 }))}
